@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,11 +24,12 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	
+    @Column
 	@NotEmpty @Size ( min = 2, message = "the username should have more than 2 characters")
 	private String username;
 	
-	@NotEmpty @Size ( min = 5, message = "the password should have more than 5 characters")
+    @Column
+    @NotEmpty @Size ( min = 5, message = "the password should have more than 5 characters")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String password;
 	
