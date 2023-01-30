@@ -1,8 +1,8 @@
-insert into users (username,password)
-values ('admin', 'password');
+insert into users (user_id, username,password)
+values (1, 'admin', 'password');
 
-insert into users (username,password)
-values ('dave', 'password');
+insert into users (user_id, username,password)
+values (2, 'dave', 'password');
 
-insert into users (username,password)
-values ('mary', 'password');
+insert into users (user_id, username,password)
+values (3, 'mary', 'password');
