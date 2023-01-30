@@ -41,7 +41,12 @@ public class UserServiceImpl implements UserService {
 	public User findById(long theId) {
 		return userRepository.findById(theId).get();
 	}
-
+	
+//	@Override
+//	public User findByUsername(String theUsername) {
+//		return userRepository.findByUsername(theUsername).get();
+//	}
+	
 	@Override
 	public User save(User theUser) {
 		return userRepository.save(theUser);
@@ -52,5 +57,13 @@ public class UserServiceImpl implements UserService {
 		 userRepository.deleteById(theId);
 		 return null;
 	}
+
+
+//	@Override
+//	public User deleteByUsername(String theUsername) {
+//		 userRepository.deleteByUsername(theUsername);
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

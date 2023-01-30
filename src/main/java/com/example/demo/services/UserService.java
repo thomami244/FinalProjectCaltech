@@ -12,8 +12,10 @@ public interface UserService {
 
 	public List<User> findAll();
 	public User findById( long theId );
+//	public User findByUsername( String theUsername );
 	public User save ( User theUser );
 	public User deleteById ( long theId );
+//	public User deleteByUsername ( String theUsername );
 	
 }
 // from simplilearn file
