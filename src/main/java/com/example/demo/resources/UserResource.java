@@ -91,21 +91,21 @@ public class UserResource {
 	}
 	
 	
-	@PostMapping( path = "/users/{username}")
-	public ResponseEntity createUser (@PathVariable String username ,@Valid @RequestBody User theUser) {
-		
-		User saveUser = userService.save(theUser);
-		
-		// current request  : http://localhost:8080/users/vinodh/todos
-		
-		// current request + path =  http://localhost:8080/users/vinodh/todos/4
-		
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{username}")
-				.buildAndExpand(saveUser.getUsername()).toUri();
-		
-		return ResponseEntity.created(location).build();
-		
-	}
+//	@PostMapping( path = "/users/{username}")
+//	public ResponseEntity createUser (@PathVariable String username ,@Valid @RequestBody User theUser) {
+//		
+//		User saveUser = userService.save(theUser);
+//		
+//		// current request  : http://localhost:8080/users/vinodh/todos
+//		
+//		// current request + path =  http://localhost:8080/users/vinodh/todos/4
+//		
+//		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("")
+//				.buildAndExpand(saveUser.getUsername()).toUri();
+//		
+//		return ResponseEntity.created(location).build();
+//		
+//	}
 	
 	@PostMapping( path = "/users/{user_id}")
 	public ResponseEntity createUser (@PathVariable long user_id ,@Valid @RequestBody User theUser) {
@@ -116,12 +116,13 @@ public class UserResource {
 		
 		// current request + path =  http://localhost:8080/users/vinodh/todos/4
 		
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{user_id}")
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
 				.buildAndExpand(saveUser.getId()).toUri();
 		
 		return ResponseEntity.created(location).build();
 		
 	}
+	
 	
 	@Autowired
 	private UserService userService;
