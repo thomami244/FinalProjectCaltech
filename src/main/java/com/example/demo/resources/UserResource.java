@@ -110,6 +110,16 @@ public class UserResource {
 	@PostMapping( path = "/users/{user_id}")
 	public ResponseEntity createUser (@PathVariable long user_id ,@Valid @RequestBody User theUser) {
 		
+		User deleteUser = userService.deleteById(user_id);
+		
+		if ( theUser != null ) {
+			return ResponseEntity.noContent().build();
+		}
+//		
+//		if ( theUser != null ) {
+//			return ResponseEntity.noContent().build();
+//		}
+		
 		User saveUser = userService.save(theUser);
 		
 		// current request  : http://localhost:8080/users/vinodh/todos
