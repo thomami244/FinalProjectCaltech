@@ -38,12 +38,12 @@ public class UserResource {
 //		return theUser;	
 //	}
 	
-	@GetMapping ( path = "/users/{id}" )
-	public User getUser (@PathVariable long id) {
-		User theUser = userService.findById(id);
+	@GetMapping ( path = "/users/{user_id}" )
+	public User getUser (@PathVariable long user_id) {
+		User theUser = userService.findById(user_id);
 		
 		if ( theUser == null ) {
-			throw new UserNotFoundException("id - " + id);
+			throw new UserNotFoundException("id - " + user_id);
 		}
 		
 		return theUser;	
@@ -62,9 +62,9 @@ public class UserResource {
 //		return  ResponseEntity.notFound().build();
 //	}
 	
-	@DeleteMapping ( path = "/users/{id}")
-	public ResponseEntity delete(@PathVariable long id) {
-		User theUser = userService.deleteById(id);
+	@DeleteMapping ( path = "/users/{user_id}")
+	public ResponseEntity delete(@PathVariable long user_id) {
+		User theUser = userService.deleteById(user_id);
 		
 		if ( theUser != null ) {
 			return ResponseEntity.noContent().build();
@@ -107,8 +107,8 @@ public class UserResource {
 		
 	}
 	
-	@PostMapping( path = "/users/{id}")
-	public ResponseEntity createUser (@PathVariable long id ,@Valid @RequestBody User theUser) {
+	@PostMapping( path = "/users/{user_id}")
+	public ResponseEntity createUser (@PathVariable long user_id ,@Valid @RequestBody User theUser) {
 		
 		User saveUser = userService.save(theUser);
 		
@@ -116,7 +116,7 @@ public class UserResource {
 		
 		// current request + path =  http://localhost:8080/users/vinodh/todos/4
 		
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{user_id}")
 				.buildAndExpand(saveUser.getId()).toUri();
 		
 		return ResponseEntity.created(location).build();

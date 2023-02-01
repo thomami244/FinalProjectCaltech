@@ -25,7 +25,7 @@ public class User {
 	@Id
 	@Column(name="user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long user_id;
 	
     @Column
 	@NotEmpty @Size ( min = 2, message = "the username should have more than 2 characters")
@@ -47,9 +47,9 @@ public class User {
 	}
 
 
-	public User(Long id, String username, String password) {
+	public User(Long user_id, String username, String password) {
 		this(); // invoke constructor on line 14
-		this.id = id;
+		this.user_id = user_id;
 		this.username = username;
 		this.password = password;
 
@@ -57,12 +57,12 @@ public class User {
 
 
 	public Long getId() {
-		return id;
+		return user_id;
 	}
 
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getUsername() {
