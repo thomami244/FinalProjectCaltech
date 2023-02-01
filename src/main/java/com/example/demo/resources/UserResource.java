@@ -39,7 +39,7 @@ public class UserResource {
 //	}
 	
 	@GetMapping ( path = "/users/{id}" )
-	public User getTodo (@PathVariable long id) {
+	public User getUser (@PathVariable long id) {
 		User theUser = userService.findById(id);
 		
 		if ( theUser == null ) {
@@ -75,7 +75,7 @@ public class UserResource {
 	
 	
 	@PostMapping( path = "/users/")
-	public ResponseEntity createTodo (@Valid @RequestBody User theUser) {
+	public ResponseEntity createUser (@Valid @RequestBody User theUser) {
 		
 		User saveUser = userService.save(theUser);
 		
@@ -92,7 +92,7 @@ public class UserResource {
 	
 	
 	@PostMapping( path = "/users/{username}")
-	public ResponseEntity createTodo (@PathVariable String username ,@Valid @RequestBody User theUser) {
+	public ResponseEntity createUser (@PathVariable String username ,@Valid @RequestBody User theUser) {
 		
 		User saveUser = userService.save(theUser);
 		
@@ -108,7 +108,7 @@ public class UserResource {
 	}
 	
 	@PostMapping( path = "/users/{id}")
-	public ResponseEntity createTodo (@PathVariable long id ,@Valid @RequestBody User theUser) {
+	public ResponseEntity createUser (@PathVariable long id ,@Valid @RequestBody User theUser) {
 		
 		User saveUser = userService.save(theUser);
 		
@@ -126,8 +126,8 @@ public class UserResource {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping ( path = "/users/{username}/all" )
-	public List<User> getAllUsers( @PathVariable String username){
+	@GetMapping ( path = "/users/all" )
+	public List<User> getAllUsers(){
 //		System.out.println( " username : " + username);
 		return userService.findAll();
 	}
