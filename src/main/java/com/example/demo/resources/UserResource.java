@@ -74,6 +74,22 @@ public class UserResource {
 	}
 	
 	
+	@PostMapping( path = "/users/")
+	public ResponseEntity createTodo (@Valid @RequestBody User theUser) {
+		
+		User saveUser = userService.save(theUser);
+		
+		// current request  : http://localhost:8080/users/
+		
+		// current request + path =  http://localhost:8080/users/vinodh/todos/4
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+				.buildAndExpand(saveUser).toUri();
+		
+		return ResponseEntity.created(location).build();
+		
+	}
+	
 	
 	@PostMapping( path = "/users/{username}")
 	public ResponseEntity createTodo (@PathVariable String username ,@Valid @RequestBody User theUser) {
