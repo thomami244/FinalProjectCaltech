@@ -35,7 +35,6 @@ public class Product {
 	private String productname;
 	
     @Column
-    @NotEmpty @Size ( min = 3, message = "the product description should have more than 3 characters")
 	private String productdescription;
     
     @Column
@@ -45,17 +44,15 @@ public class Product {
     
     // unit price for each product
     @Column
-    @NotEmpty
 	private float productprice;
     
     // quantity of stock on hand
     @Column
-    @NotEmpty
 	private Long productquantity;
     
     // the admin can activate the product or deactivate the product from the store listing
     @Column(name="ISACTIVATED")
-    @NotEmpty
+//    @NotEmpty
     private boolean isActivated;
     
     
