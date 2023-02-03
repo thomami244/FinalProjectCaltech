@@ -38,6 +38,9 @@ public class Product {
 	private String productdescription;
     
     @Column
+   	private String productURL;
+    
+    @Column
     @NotEmpty @Size ( min = 2, message = "the product category should have more than 2 characters")
 	private String productcategory;
     
@@ -61,11 +64,12 @@ public class Product {
 	}
 
 
-	public Product(Long product_id, String productname, String productdescription, String productcategory, float productprice, Long productquantity, boolean isActivated) {
+	public Product(Long product_id, String productname, String productdescription, String productURL, String productcategory, float productprice, Long productquantity, boolean isActivated) {
 		this(); // invoke constructor above
 		this.product_id = product_id;
 		this.productname = productname;
 		this.productdescription = productdescription;
+		this.productURL = productURL;
 		this.productcategory = productcategory;
 		this.productprice = productprice;
 		this.productquantity = productquantity;
@@ -90,6 +94,26 @@ public class Product {
 
 	public void setProductname(String productname) {
 		this.productname = productname;
+	}
+	
+	
+	public String getProductdescription() {
+		return productdescription;
+	}
+
+
+	public void setProductdescription(String productdescription) {
+		this.productdescription = productdescription;
+	}
+	
+	
+	public String getProductURL() {
+		return productURL;
+	}
+
+
+	public void setProductURL(String productURL) {
+		this.productURL = productURL;
 	}
 
 	public String getProductcategory() {
