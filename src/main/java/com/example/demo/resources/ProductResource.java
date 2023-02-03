@@ -23,6 +23,9 @@ import com.example.demo.model.Product;
 import com.example.demo.services.ProductService;
 
 
+
+
+
 @CrossOrigin(origins ="http://localhost:4200")
 @RestController
 public class ProductResource {
@@ -69,7 +72,7 @@ public class ProductResource {
 		return ResponseEntity.created(location).build();
 		
 	}
-	
+		
 	
 	
 	@PutMapping( path = "/products/{product_id}")

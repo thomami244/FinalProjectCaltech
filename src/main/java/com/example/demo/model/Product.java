@@ -35,7 +35,7 @@ public class Product {
 	private String productname;
 	
     @Column
-    @NotEmpty @Size ( min = 5, message = "the product description should have more than 5 characters")
+    @NotEmpty @Size ( min = 3, message = "the product description should have more than 3 characters")
 	private String productdescription;
     
     @Column
@@ -54,7 +54,7 @@ public class Product {
 	private Long productquantity;
     
     // the admin can activate the product or deactivate the product from the store listing
-    @Column
+    @Column(name="ISACTIVATED")
     @NotEmpty
     private boolean isActivated;
     
@@ -77,12 +77,12 @@ public class Product {
 	}
 
 
-	public Long getProductId() {
+	public Long getId() {
 		return product_id;
 	}
 
 
-	public void setProductId(Long product_id) {
+	public void setId(Long product_id) {
 		this.product_id = product_id;
 	}
 
