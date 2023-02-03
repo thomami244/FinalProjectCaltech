@@ -15,11 +15,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import javax.persistence.Id;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "users")
+@EnableTransactionManagement
 public class User {
 
 	@Id
