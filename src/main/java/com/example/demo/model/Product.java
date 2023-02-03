@@ -5,7 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.util.Currency;
+
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
 //import javax.persistence.Id;
@@ -46,7 +46,7 @@ public class Product {
     // unit price for each product
     @Column
     @NotEmpty
-	private Currency productprice;
+	private float productprice;
     
     // quantity of stock on hand
     @Column
@@ -64,7 +64,7 @@ public class Product {
 	}
 
 
-	public Product(Long product_id, String productname, String productdescription, String productcategory, Currency productprice, Long productquantity, boolean isActivated) {
+	public Product(Long product_id, String productname, String productdescription, String productcategory, float productprice, Long productquantity, boolean isActivated) {
 		this(); // invoke constructor above
 		this.product_id = product_id;
 		this.productname = productname;
@@ -104,12 +104,12 @@ public class Product {
 		this.productcategory = productcategory;
 	}
 
-	public Currency getProductprice() {
+	public float getProductprice() {
 		return productprice;
 	}
 
 
-	public void setProductprice(Currency productprice) {
+	public void setProductprice(float productprice) {
 		this.productprice = productprice;
 	}
 	
