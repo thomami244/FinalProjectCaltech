@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -107,14 +108,14 @@ public class UserResource {
 //		
 //	}
 	
-	@PostMapping( path = "/users/{user_id}")
-	public ResponseEntity createUser (@PathVariable long user_id ,@Valid @RequestBody User theUser) {
+	@PutMapping( path = "/users/{user_id}")
+	public ResponseEntity updateUser (@PathVariable long user_id ,@Valid @RequestBody User theUser) {
 		
-		User deleteUser = userService.deleteById(user_id);
-		
-		if ( theUser != null ) {
-			return ResponseEntity.noContent().build();
-		}
+//		User deleteUser = userService.deleteById(user_id);
+//		
+//		if ( theUser != null ) {
+//			return ResponseEntity.noContent().build();
+//		}
 //		
 //		if ( theUser != null ) {
 //			return ResponseEntity.noContent().build();
