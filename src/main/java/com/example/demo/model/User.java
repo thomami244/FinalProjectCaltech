@@ -35,14 +35,8 @@ public class User {
 	
     @Column
     @NotEmpty @Size ( min = 5, message = "the password should have more than 5 characters")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String password;
-	
-//	@NotEmpty @Size ( min = 5, message = "the description should have more than 5 characters")
-//	private String description;
-//	private Date targetDate;
-//	private boolean isDone;
-	
+		
 	
 	public User() {
 		super(); //default
@@ -50,7 +44,7 @@ public class User {
 
 
 	public User(Long user_id, String username, String password) {
-		this(); // invoke constructor on line 14
+		this(); // invoke constructor above
 		this.user_id = user_id;
 		this.username = username;
 		this.password = password;
