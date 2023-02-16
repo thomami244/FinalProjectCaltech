@@ -47,11 +47,21 @@ public class Product {
     
     // unit price for each product
     @Column
-	private float productprice;
-    
+    private float productprice;
+
     // quantity of stock on hand
     @Column
+	private Long availablequantity;
+    
+    
+    // quantity of stock ordered
+    @Column
 	private Long productquantity;
+    
+    // quantity of stock ordered multiplied by the unit price
+    @Column
+	private float producttotal;
+    
     
     // the admin can activate the product or deactivate the product from the store listing
     @Column(name="ISACTIVATED")
@@ -64,7 +74,7 @@ public class Product {
 	}
 
 
-	public Product(Long product_id, String productname, String productdescription, String productURL, String productcategory, float productprice, Long productquantity, boolean isActivated) {
+	public Product(Long product_id, String productname, String productdescription, String productURL, String productcategory, float productprice, Long availablequantity, Long productquantity, Long producttotal, boolean isActivated) {
 		this(); // invoke constructor above
 		this.product_id = product_id;
 		this.productname = productname;
@@ -72,7 +82,9 @@ public class Product {
 		this.productURL = productURL;
 		this.productcategory = productcategory;
 		this.productprice = productprice;
+		this.availablequantity = availablequantity;
 		this.productquantity = productquantity;
+		this.producttotal = producttotal;
 		this.isActivated = isActivated;
 		
 	}
@@ -134,6 +146,15 @@ public class Product {
 		this.productprice = productprice;
 	}
 	
+	public Long getAvailablequantity() {
+		return availablequantity;
+	}
+
+
+	public void setAvailablequantity(Long availablequantity) {
+		this.availablequantity = availablequantity;
+	}
+	
 	
 	public Long getProductquantity() {
 		return productquantity;
@@ -142,6 +163,15 @@ public class Product {
 
 	public void setProductquantity(Long productquantity) {
 		this.productquantity = productquantity;
+	}
+	
+	public float getProducttotal() {
+		return producttotal;
+	}
+
+
+	public void setProducttotal(float producttotal) {
+		this.producttotal = producttotal;
 	}
 	
 	public boolean getIsActivated() {
