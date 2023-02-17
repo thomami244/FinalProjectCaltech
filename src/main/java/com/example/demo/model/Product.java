@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Access;
@@ -39,8 +40,9 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long product_id;
 	
-	@OneToMany(mappedBy = "cart_id")
-    private Set<Cart> cart = new HashSet<>();
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product_id")
+    private List<Cart> carts;
+//	private Set<Cart> cart = new HashSet<>();
 	
 	
     @Column

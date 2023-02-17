@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
+import com.example.demo.model.Product;
 
 //import org.springframework.data.annotation.Id;
 
@@ -42,9 +43,10 @@ public class Cart {
     @Column
 	private Long producttotal;
     
+    
 	@ManyToOne
     @JoinColumn(name = "product_id")
-    private Product product;
+    private Product product_id;
     
       
     
@@ -53,13 +55,13 @@ public class Cart {
 	}
 
 
-	public Cart(Long cart_id, Long productquantity, Long producttotal, Long product_id) {
+	public Cart(Long cart_id, Long productquantity, Long producttotal, Product product_id) {
 		this(); // invoke constructor above
 		this.cart_id = cart_id;
 
 		this.productquantity = productquantity;
 		this.producttotal = producttotal;
-//		this.product_id = product_id;
+		this.product_id = product_id;
 		
 	}
 
@@ -90,6 +92,10 @@ public class Cart {
 	public void setProducttotal(Long producttotal) {
 		this.producttotal = producttotal;
 	}
+	
+	  public Product getProduct() {
+	        return product_id;
+	    }
 
 //	public String getProductname() {
 //		return productname;
