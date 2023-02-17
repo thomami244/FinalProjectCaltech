@@ -30,9 +30,7 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cart_id;
 	
-	@ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+
 	
 //    @Column
 //	@NotEmpty @Size ( min = 2, message = "the productname should have more than 2 characters")
@@ -65,6 +63,10 @@ public class Cart {
     // quantity of stock ordered multiplied by the unit price
     @Column
 	private float producttotal;
+    
+	@ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
     
     
 //    // the admin can activate the product or deactivate the product from the store listing
