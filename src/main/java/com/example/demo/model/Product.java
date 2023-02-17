@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.Set;
+
 import javax.persistence.Access;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,6 +31,10 @@ public class Product {
 	@Column(name="product_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long product_id;
+	
+	@OneToMany(mappedBy = "products")
+    private Set<Cart> cart = new HashSet<>();
+	
 	
     @Column
 	@NotEmpty @Size ( min = 2, message = "the productname should have more than 2 characters")
