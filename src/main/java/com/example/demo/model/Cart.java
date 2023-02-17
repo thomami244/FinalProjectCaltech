@@ -46,7 +46,7 @@ public class Cart {
     
 	@ManyToOne
     @JoinColumn(name = "product_id")
-    private Product product_id;
+    private Product product;
     
       
     
@@ -55,13 +55,13 @@ public class Cart {
 	}
 
 
-	public Cart(Long cart_id, Long productquantity, Long producttotal, Product product_id) {
+	public Cart(Long cart_id, Long productquantity, Long producttotal, Product oroduct) {
 		this(); // invoke constructor above
 		this.cart_id = cart_id;
 
 		this.productquantity = productquantity;
 		this.producttotal = producttotal;
-		this.product_id = product_id;
+		this.product = product;
 		
 	}
 
@@ -94,7 +94,7 @@ public class Cart {
 	}
 	
 	  public Product getProduct() {
-	        return product_id;
+	        return product;
 	    }
 
 //	public String getProductname() {

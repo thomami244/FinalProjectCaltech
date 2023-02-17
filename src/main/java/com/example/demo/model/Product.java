@@ -40,7 +40,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long product_id;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product_id")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private List<Cart> carts;
 //	private Set<Cart> cart = new HashSet<>();
 	
