@@ -34,6 +34,10 @@ public class Cart {
 	@Column(name="cart_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cart_id;
+	
+	  // multiple cart items can belong to the same order
+    @Column
+	private Long orderId;
 	    
     // quantity of stock ordered
     @Column
@@ -55,9 +59,10 @@ public class Cart {
 	}
 
 
-	public Cart(Long cart_id, Long productquantity, Long producttotal, Product oroduct) {
+	public Cart(Long cart_id, Long orderId, Long productquantity, Long producttotal, Product oroduct) {
 		this(); // invoke constructor above
 		this.cart_id = cart_id;
+		this.orderId = orderId;
 
 		this.productquantity = productquantity;
 		this.producttotal = producttotal;
@@ -73,6 +78,15 @@ public class Cart {
 
 	public void setCartId(Long cart_id) {
 		this.cart_id = cart_id;
+	}
+	
+	public Long getOrderId() {
+		return orderId;
+	}
+
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
 	}
 	
 	public Long getProductquantity() {
@@ -95,75 +109,6 @@ public class Cart {
 	
 	  public Product getProduct() {
 	        return product;
-	    }
-
-//	public String getProductname() {
-//		return productname;
-//	}
-//
-//
-//	public void setProductname(String productname) {
-//		this.productname = productname;
-//	}
-//	
-//	
-//	public String getProductdescription() {
-//		return productdescription;
-//	}
-//
-//
-//	public void setProductdescription(String productdescription) {
-//		this.productdescription = productdescription;
-//	}
-//	
-//	
-//	public String getProductURL() {
-//		return productURL;
-//	}
-//
-//
-//	public void setProductURL(String productURL) {
-//		this.productURL = productURL;
-//	}
-//
-//	public String getProductcategory() {
-//		return productcategory;
-//	}
-//
-//
-//	public void setProductcategory(String productcategory) {
-//		this.productcategory = productcategory;
-//	}
-//
-//	public float getProductprice() {
-//		return productprice;
-//	}
-//
-//
-//	public void setProductprice(float productprice) {
-//		this.productprice = productprice;
-//	}
-//	
-//	public Long getAvailablequantity() {
-//		return availablequantity;
-//	}
-//
-//
-//	public void setAvailablequantity(Long availablequantity) {
-//		this.availablequantity = availablequantity;
-//	}
-//	
-	
-	
-	
-//	public boolean getIsActivated() {
-//		return isActivated;
-//	}
-//
-//
-//	public void setIsActivated(boolean isActivated) {
-//		this.isActivated = isActivated;
-//	}
-	
+	    }	
 	
 }
