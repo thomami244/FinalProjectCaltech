@@ -18,6 +18,10 @@ import javax.validation.constraints.Size;
 import javax.persistence.Id;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
+
 //import org.springframework.data.annotation.Id;
 
 @Entity
@@ -29,33 +33,7 @@ public class Cart {
 	@Column(name="cart_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cart_id;
-	
-
-	
-//    @Column
-//	@NotEmpty @Size ( min = 2, message = "the productname should have more than 2 characters")
-//	private String productname;
-//	
-//    @Column
-//	private String productdescription;
-//    
-//    @Column
-//   	private String productURL;
-//    
-//    @Column
-//    @NotEmpty @Size ( min = 2, message = "the product category should have more than 2 characters")
-//	private String productcategory;
-//    
-//    
-//    // unit price for each product
-//    @Column
-//    private float productprice;
-//
-//    // quantity of stock on hand
-//    @Column
-//	private Long availablequantity;
-//    
-//    
+	    
     // quantity of stock ordered
     @Column
 	private Long productquantity;
@@ -68,30 +46,20 @@ public class Cart {
     @JoinColumn(name = "product_id")
     private Product product;
     
+      
     
-//    // the admin can activate the product or deactivate the product from the store listing
-//    @Column(name="ISACTIVATED")
-////    @NotEmpty
-//    private boolean isActivated;
-//    
-    
-	public Product() {
+	public Cart() {
 		super(); //default
 	}
 
 
-	public Product(Long product_id, String productname, String productdescription, String productURL, String productcategory, float productprice, Long availablequantity, Long productquantity, Long producttotal, boolean isActivated) {
+	public Cart(Long cart_id, Long productquantity, Long producttotal, Long product_id) {
 		this(); // invoke constructor above
-		this.cart_id = product_id;
-//		this.productname = productname;
-//		this.productdescription = productdescription;
-//		this.productURL = productURL;
-//		this.productcategory = productcategory;
-//		this.productprice = productprice;
-//		this.availablequantity = availablequantity;
+		this.cart_id = cart_id;
+
 		this.productquantity = productquantity;
 		this.producttotal = producttotal;
-//		this.isActivated = isActivated;
+//		this.product_id = product_id;
 		
 	}
 

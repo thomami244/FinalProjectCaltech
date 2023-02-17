@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Access;
@@ -20,6 +21,12 @@ import javax.validation.constraints.Size;
 import javax.persistence.Id;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
+
+
 //import org.springframework.data.annotation.Id;
 
 @Entity
@@ -32,7 +39,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long product_id;
 	
-	@OneToMany(mappedBy = "products")
+	@OneToMany(mappedBy = "cart_id")
     private Set<Cart> cart = new HashSet<>();
 	
 	
