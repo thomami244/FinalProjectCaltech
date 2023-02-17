@@ -40,7 +40,7 @@ public class Cart {
     
     // quantity of stock ordered multiplied by the unit price
     @Column
-	private float producttotal;
+	private Long producttotal;
     
 	@ManyToOne
     @JoinColumn(name = "product_id")
@@ -82,12 +82,12 @@ public class Cart {
 		this.productquantity = productquantity;
 	}
 	
-	public float getProducttotal() {
+	public Long getProducttotal() {
 		return producttotal;
 	}
 
 
-	public void setProducttotal(float producttotal) {
+	public void setProducttotal(Long producttotal) {
 		this.producttotal = producttotal;
 	}
 

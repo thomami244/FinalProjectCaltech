@@ -67,13 +67,13 @@ public class Product {
 	private Long availablequantity;
     
     
-    // quantity of stock ordered
-    @Column
-	private Long productquantity;
-    
-    // quantity of stock ordered multiplied by the unit price
-    @Column
-	private float producttotal;
+//    // quantity of stock ordered
+//    @Column
+//	private Long productquantity;
+//    
+//    // quantity of stock ordered multiplied by the unit price
+//    @Column
+//	private float producttotal;
     
     
     // the admin can activate the product or deactivate the product from the store listing
@@ -96,8 +96,8 @@ public class Product {
 		this.productcategory = productcategory;
 		this.productprice = productprice;
 		this.availablequantity = availablequantity;
-		this.productquantity = productquantity;
-		this.producttotal = producttotal;
+//		this.productquantity = productquantity;
+//		this.producttotal = producttotal;
 		this.isActivated = isActivated;
 		
 	}
@@ -169,23 +169,23 @@ public class Product {
 	}
 	
 	
-	public Long getProductquantity() {
-		return productquantity;
-	}
-
-
-	public void setProductquantity(Long productquantity) {
-		this.productquantity = productquantity;
-	}
-	
-	public float getProducttotal() {
-		return producttotal;
-	}
-
-
-	public void setProducttotal(float producttotal) {
-		this.producttotal = producttotal;
-	}
+//	public Long getProductquantity() {
+//		return productquantity;
+//	}
+//
+//
+//	public void setProductquantity(Long productquantity) {
+//		this.productquantity = productquantity;
+//	}
+//	
+//	public float getProducttotal() {
+//		return producttotal;
+//	}
+//
+//
+//	public void setProducttotal(float producttotal) {
+//		this.producttotal = producttotal;
+//	}
 	
 	public boolean getIsActivated() {
 		return isActivated;
