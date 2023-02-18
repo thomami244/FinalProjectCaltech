@@ -2,8 +2,8 @@ package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.model.Cart;
+import com.example.demo.model.CartSession;
 
-public interface CartSessionRepository extends JpaRepository<Cart, Long>{
+public interface CartSessionRepository extends JpaRepository<CartSession, Long>{
 
 }

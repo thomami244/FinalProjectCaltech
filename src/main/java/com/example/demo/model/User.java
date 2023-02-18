@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Access;
 import javax.persistence.Column;
@@ -24,7 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
+
 
 
 @Entity

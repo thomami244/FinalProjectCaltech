@@ -26,7 +26,7 @@ import com.example.demo.model.User;
 //import org.springframework.data.annotation.Id;
 
 @Entity
-@Table(name = "cartSession")
+@Table(name = "cartSessions")
 @EnableTransactionManagement
 public class CartSession {
 
