@@ -22,6 +22,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 import com.example.demo.model.Product;
+import com.example.demo.model.CartSession;
 
 //import org.springframework.data.annotation.Id;
 
@@ -50,6 +51,9 @@ public class Cart {
     private Product product;
 	
     
+	@ManyToOne
+    @JoinColumn(name = "cartSession_id")
+    private CartSession cartSession;
       
     
 	public Cart() {
@@ -57,13 +61,14 @@ public class Cart {
 	}
 
 
-	public Cart(Long cart_id, Long productquantity, Long producttotal, Product oroduct) {
+	public Cart(Long cart_id, Long productquantity, Long producttotal, Product product, CartSession cartSession) {
 		this(); // invoke constructor above
 		this.cart_id = cart_id;
 
 		this.productquantity = productquantity;
 		this.producttotal = producttotal;
 		this.product = product;
+		this.cartSession = cartSession;
 		
 	}
 
@@ -98,6 +103,10 @@ public class Cart {
 	
 	  public Product getProduct() {
 	        return product;
+	    }	
+	  
+	  public CartSession getCartSession() {
+	        return cartSession;
 	    }	
 	
 }

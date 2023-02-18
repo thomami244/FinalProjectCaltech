@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import com.example.demo.model.User;
 
@@ -34,6 +35,11 @@ public class CartSession {
 	@Column(name="cartSession_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cartSession_id;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cartSession")
+    private List<Cart> carts;
+//	private Set<Cart> cart = new H
+//	private Set<Cart> cart = new HashSet<>();
 	
     
 	@ManyToOne
