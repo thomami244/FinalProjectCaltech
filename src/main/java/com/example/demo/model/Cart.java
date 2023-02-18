@@ -35,9 +35,6 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long cart_id;
 	
-	  // multiple cart items can belong to the same order
-    @Column
-	private Long orderId;
 	    
     // quantity of stock ordered
     @Column
@@ -51,6 +48,7 @@ public class Cart {
 	@ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
+	
     
       
     
@@ -59,10 +57,9 @@ public class Cart {
 	}
 
 
-	public Cart(Long cart_id, Long orderId, Long productquantity, Long producttotal, Product oroduct) {
+	public Cart(Long cart_id, Long productquantity, Long producttotal, Product oroduct) {
 		this(); // invoke constructor above
 		this.cart_id = cart_id;
-		this.orderId = orderId;
 
 		this.productquantity = productquantity;
 		this.producttotal = producttotal;
@@ -80,14 +77,6 @@ public class Cart {
 		this.cart_id = cart_id;
 	}
 	
-	public Long getOrderId() {
-		return orderId;
-	}
-
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
 	
 	public Long getProductquantity() {
 		return productquantity;
