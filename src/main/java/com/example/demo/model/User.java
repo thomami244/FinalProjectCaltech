@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Access;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +21,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //import org.springframework.data.annotation.Id;
 
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
+
+
 @Entity
 @Table(name = "users")
 @EnableTransactionManagement
@@ -28,6 +36,10 @@ public class User {
 	@Column(name="user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long user_id;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<CartSession> cartSession;
+//	private Set<Cart> cart = new HashSet<>();
 	
     @Column
 	@NotEmpty @Size ( min = 2, message = "the username should have more than 2 characters")
