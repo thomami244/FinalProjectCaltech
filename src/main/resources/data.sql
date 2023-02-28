@@ -2,7 +2,16 @@
 insert into products (product_id, productname ,productdescription, productURL, productcategory, productprice, availablequantity, ISACTIVATED)
 values (0, 'coca-cola', 'Carbonated drink', 'www.cocacolapicture', 'Beverages', '2.99', '100', true);
 insert into products (product_id, productname ,productdescription, productURL, productcategory, productprice, availablequantity, ISACTIVATED)
-values (1, 'Hamburgher', 'Meat between bread bun', 'www.hamburgher.com', 'Meal', '10.99', '20', true);
+values (1, 'Hamburgher', 'Meat between bread bun', 'www.hamburgher.com', 'Meals', '10.99', '20', true);
+
+insert into products (product_id, productname ,productdescription, productURL, productcategory, productprice, availablequantity, ISACTIVATED)
+values (2, 'Potato wedges', 'Potato wedges with great flavor', 'www.potatowedges.com', 'Sides', '2.99', '15', true);
+
+
+insert into products (product_id, productname ,productdescription, productURL, productcategory, productprice, availablequantity, ISACTIVATED)
+values (3, 'Seared fish', 'Oven-baked fish in olive oil', 'www.fishnchipse.com', 'Meals', '15.99', '9', true);
+
+
 insert into users (user_id, username,password)
 values (0, 'admin', 'password');
 insert into users (user_id, username,password)
