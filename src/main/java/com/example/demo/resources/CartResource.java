@@ -81,7 +81,7 @@ public class CartResource {
 	}
 	
 	@GetMapping ( path = "/users/carts/all" )
-	public List<Cart> getAllCarts( @PathVariable String username){
+	public List<Cart> getAllCarts(){
 //		System.out.println( " username : " + username);
 		return cartService.findAll();
 	}
