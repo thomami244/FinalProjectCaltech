@@ -32,6 +32,7 @@ public class CartSessionResource {
 	@GetMapping ( path = "/users/{username}/cartsession/{cartSession_id}" )
 	public CartSession getCartSession (@PathVariable String username, @PathVariable long cartSession_id) {
 		CartSession theCartSession = cartSessionService.findById(cartSession_id);
+		
 		//		current request: http://localhost:8080/users/admin/cartsession/1
 		if ( theCartSession == null ) {
 			throw new CartSessionNotFoundException("id - " + cartSession_id);
@@ -74,8 +75,15 @@ public class CartSessionResource {
 	private CartSessionService cartSessionService;
 	
 	@GetMapping ( path = "/users/{username}/cartsession" )
-	public List<CartSession> getAllCartSessions( @PathVariable String username){
-//		System.out.println( " username : " + username);
+	public List<CartSession> getAllUserCartSessions( @PathVariable String username){
+//		current request: http://localhost:8080/users/admin/cartsession
+		return cartSessionService.findAll();
+	}
+	
+	@GetMapping ( path = "/users/cartsession" )
+	public List<CartSession> getAllCartSessions(){
+//		current request: http://localhost:8080/users/cartsession
+
 		return cartSessionService.findAll();
 	}
 	
