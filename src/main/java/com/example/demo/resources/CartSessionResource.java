@@ -32,7 +32,7 @@ public class CartSessionResource {
 	@GetMapping ( path = "/users/{username}/cartsession/{cartSession_id}" )
 	public CartSession getCartSession (@PathVariable String username, @PathVariable long cartSession_id) {
 		CartSession theCartSession = cartSessionService.findById(cartSession_id);
-		
+		//		current request: http://localhost:8080/users/admin/cartsession/1
 		if ( theCartSession == null ) {
 			throw new CartSessionNotFoundException("id - " + cartSession_id);
 		}
@@ -54,21 +54,21 @@ public class CartSessionResource {
 //	}
 //	
 //	
-//	@PostMapping( path = "/users/{username}/todos")
-//	public ResponseEntity createTodo (@PathVariable String username ,@Valid @RequestBody Todo theTodo) {
-//		
-//		Todo saveTodo = todoService.save(theTodo);
-//		
-//		// current request  : http://localhost:8080/users/vinodh/todos
-//		
-//		// current request + path =  http://localhost:8080/users/vinodh/todos/4
-//		
-//		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-//				.buildAndExpand(saveTodo.getId()).toUri();
-//		
-//		return ResponseEntity.created(location).build();
-//		
-//	}
+	@PostMapping( path = "/users/{username}/cartsession")
+	public ResponseEntity createCartSession (@PathVariable String username ,@Valid @RequestBody CartSession theCartSession) {
+		
+		CartSession saveCartSession = cartSessionService.save(theCartSession);
+		
+		// current request  : http://localhost:8080/users/admin/cartsession
+		
+		// current request + path =  http://localhost:8080/users/admin/cartsession/1
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+				.buildAndExpand(saveCartSession).toUri();
+		
+		return ResponseEntity.created(location).build();
+		
+		
+	}
 	
 	@Autowired
 	private CartSessionService cartSessionService;

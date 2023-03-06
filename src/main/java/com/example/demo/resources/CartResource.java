@@ -54,21 +54,22 @@ public class CartResource {
 //	}
 //	
 //	
-//	@PostMapping( path = "/users/{username}/todos")
-//	public ResponseEntity createTodo (@PathVariable String username ,@Valid @RequestBody Todo theTodo) {
-//		
-//		Todo saveTodo = todoService.save(theTodo);
-//		
-//		// current request  : http://localhost:8080/users/vinodh/todos
-//		
-//		// current request + path =  http://localhost:8080/users/vinodh/todos/4
-//		
-//		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-//				.buildAndExpand(saveTodo.getId()).toUri();
-//		
-//		return ResponseEntity.created(location).build();
-//		
-//	}
+	@PostMapping( path = "/users/{username}/cart")
+	public ResponseEntity createCart (@PathVariable String username ,@Valid @RequestBody Cart theCart) {
+		
+		Cart saveCart = cartService.save(theCart);
+		
+		// current request  : http://localhost:8080/users/admin/cart/
+		
+		// current request + path =  http://localhost:8080/users/admin/cart/4
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+				.buildAndExpand(saveCart).toUri();
+		
+		return ResponseEntity.created(location).build();
+		
+		
+	}
 	
 	@Autowired
 	private CartService cartService;
