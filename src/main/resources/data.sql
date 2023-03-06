@@ -24,10 +24,10 @@ insert into carts (cart_id, productquantity,producttotal, product_id, cart_Sessi
 values (0, 100, 300, 0, 0);
 insert into carts (cart_id, productquantity,producttotal, product_id, cart_Session_id)
 values (1, 10.99,10.99, 0, 0);
-insert into carts (cart_id, productquantity,producttotal, product_id, cart_Session_id)
-values (2, 100, 300, 0, 1);
-insert into carts (cart_id, productquantity,producttotal, product_id, cart_Session_id)
-values (3, 10.99,10.99, 0, 1);
+-- insert into carts (cart_id, productquantity,producttotal, product_id, cart_Session_id)
+-- values (2, 100, 300, 0, 1);
+-- insert into carts (cart_id, productquantity,producttotal, product_id, cart_Session_id)
+-- values (3, 10.99,10.99, 0, 1);
 
 
 

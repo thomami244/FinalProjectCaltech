@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.errors.CartNotFoundException;
 import com.example.demo.model.Cart;
+import com.example.demo.model.User;
 import com.example.demo.services.CartService;
 
 
@@ -42,26 +43,26 @@ public class CartResource {
 
 	
 	
-//	@DeleteMapping ( path = "/users/{username}/todos/{id}")
-//	public ResponseEntity delete(@PathVariable String username, @PathVariable long id) {
-//		Todo theTodo = todoService.deleteById(id);
-//		
-//		if ( theTodo != null ) {
-//			return ResponseEntity.noContent().build();
-//		}
-//		
-//		return  ResponseEntity.notFound().build();
-//	}
-//	
-//	
+	@DeleteMapping ( path = "/users/{username}/cart/{cart_id}")
+	public ResponseEntity delete(@PathVariable String username, @PathVariable long cart_id) {
+		Cart theCart = cartService.deleteById(cart_id);
+		
+		if ( theCart != null ) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		return  ResponseEntity.notFound().build();
+	}
+	
+	
 	@PostMapping( path = "/users/{username}/cart")
 	public ResponseEntity createCart (@PathVariable String username ,@Valid @RequestBody Cart theCart) {
 		
 		Cart saveCart = cartService.save(theCart);
 		
-		// current request  : http://localhost:8080/users/admin/cart/
+		// current request  : http://localhost:8080/users/mdt/cart/
 		
-		// current request + path =  http://localhost:8080/users/admin/cart/4
+		// current request + path =  http://localhost:8080/users/mdt/cart/4
 		
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
 				.buildAndExpand(saveCart).toUri();
@@ -70,6 +71,37 @@ public class CartResource {
 		
 		
 	}
+	
+	
+	@PutMapping( path = "/users/{username}/cart/{cart_id}")
+	public ResponseEntity updateCart (@PathVariable String username , @PathVariable long cart_id, @Valid @RequestBody Cart theCart) {
+		
+//		User deleteUser = userService.deleteById(user_id);
+//		
+//		if ( theUser != null ) {
+//			return ResponseEntity.noContent().build();
+//		}
+//		
+//		if ( theUser != null ) {
+//			return ResponseEntity.noContent().build();
+//		}
+		
+		
+Cart saveCart = cartService.save(theCart);
+		
+		// current request  : http://localhost:8080/users/mdt/cart/1
+		
+		// current request + path =  http://localhost:8080/users/mdt/cart/1
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+				.buildAndExpand(saveCart.getCartId()).toUri();
+		
+		return ResponseEntity.created(location).build();
+		
+	}
+	
+	
+	
 	
 	@Autowired
 	private CartService cartService;
