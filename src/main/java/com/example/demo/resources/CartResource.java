@@ -75,10 +75,17 @@ public class CartResource {
 	private CartService cartService;
 	
 	@GetMapping ( path = "/users/{username}/cart" )
+	public List<Cart> getAllUserCarts( @PathVariable String username){
+//		System.out.println( " username : " + username);
+		return cartService.findAll();
+	}
+	
+	@GetMapping ( path = "/users/carts/all" )
 	public List<Cart> getAllCarts( @PathVariable String username){
 //		System.out.println( " username : " + username);
 		return cartService.findAll();
 	}
+	
 	
 	
 }

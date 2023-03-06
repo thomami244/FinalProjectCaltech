@@ -60,13 +60,19 @@ public class CartSessionResource {
 		
 		CartSession saveCartSession = cartSessionService.save(theCartSession);
 		
-		// current request  : http://localhost:8080/users/admin/cartsession
+		// current request  : http://localhost:8080/users/mdt/cartsession
 		
-		// current request + path =  http://localhost:8080/users/admin/cartsession/1
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-				.buildAndExpand(saveCartSession).toUri();
+		// current request + path =  http://localhost:8080/users/mdt/cartsession/1
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{cartSession_id}")
+				.buildAndExpand(saveCartSession.getCartSessionId()).toUri();
 		
 		return ResponseEntity.created(location).build();
+		
+//		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+//				.buildAndExpand(saveCartSession).toUri();
+//		
+//		return ResponseEntity.created(location).build();
 		
 		
 	}
@@ -76,13 +82,13 @@ public class CartSessionResource {
 	
 	@GetMapping ( path = "/users/{username}/cartsession" )
 	public List<CartSession> getAllUserCartSessions( @PathVariable String username){
-//		current request: http://localhost:8080/users/admin/cartsession
+//		current request: http://localhost:8080/users/mdt/cartsession
 		return cartSessionService.findAll();
 	}
 	
-	@GetMapping ( path = "/users/cartsession" )
+	@GetMapping ( path = "/users/cartsessions/all" )
 	public List<CartSession> getAllCartSessions(){
-//		current request: http://localhost:8080/users/cartsession
+//		current request: http://localhost:8080/users/cartsessions/all
 
 		return cartSessionService.findAll();
 	}
