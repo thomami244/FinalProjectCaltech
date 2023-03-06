@@ -44,16 +44,16 @@ public class CartSessionResource {
 
 	
 	
-//	@DeleteMapping ( path = "/users/{username}/todos/{id}")
-//	public ResponseEntity delete(@PathVariable String username, @PathVariable long id) {
-//		Todo theTodo = todoService.deleteById(id);
-//		
-//		if ( theTodo != null ) {
-//			return ResponseEntity.noContent().build();
-//		}
-//		
-//		return  ResponseEntity.notFound().build();
-//	}
+	@DeleteMapping ( path = "/users/{username}/cartsession/{cartSession_id}")
+	public ResponseEntity delete(@PathVariable String username, @PathVariable long cartSession_id) {
+		CartSession theCartSession = cartSessionService.deleteById(cartSession_id);
+		
+		if ( theCartSession != null ) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		return  ResponseEntity.notFound().build();
+	}
 //	
 //	
 	@PostMapping( path = "/users/{username}/cartsession")
