@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.errors.CartSessionNotFoundException;
+import com.example.demo.model.Cart;
 import com.example.demo.model.CartSession;
 import com.example.demo.services.CartSessionService;
 
@@ -76,6 +77,36 @@ public class CartSessionResource {
 		
 		
 	}
+	
+	
+	@PutMapping( path = "/users/{username}/cartsession/{cartSession_id}")
+	public ResponseEntity updateCartSession (@PathVariable String username , @PathVariable long cartSession_id, @Valid @RequestBody CartSession theCartSession) {
+		
+//		User deleteUser = userService.deleteById(user_id);
+//		
+//		if ( theUser != null ) {
+//			return ResponseEntity.noContent().build();
+//		}
+//		
+//		if ( theUser != null ) {
+//			return ResponseEntity.noContent().build();
+//		}
+		
+		
+CartSession saveCartSession = cartSessionService.save(theCartSession);
+		
+		// current request  : http://localhost:8080/users/mdt/cart/1
+		
+		// current request + path =  http://localhost:8080/users/mdt/cart/1
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
+				.buildAndExpand(saveCartSession.getCartSessionId()).toUri();
+		
+		return ResponseEntity.created(location).build();
+		
+	}
+	
+	
 	
 	@Autowired
 	private CartSessionService cartSessionService;
